@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         Center(
           child: Padding(
-           padding: const EdgeInsets.only(right: 15, left: 15, bottom: 10),
+            padding: const EdgeInsets.only(right: 15, left: 15, bottom: 10),
             child: Column(
               children: [
                 SizedBox(
@@ -112,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Column(
                     children: [
                       const SizedBox(
-                        height: 40,
+                        height: 30,
                       ),
                       Text(
                         title!,
@@ -191,13 +191,10 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .50,
+                  height: MediaQuery.of(context).size.height * .52,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      const SizedBox(
-                        height: 60,
-                      ),
                       Center(
                         child: Container(
                           height: 48,
@@ -213,31 +210,43 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .45,
+                  height: MediaQuery.of(context).size.height * .43,
                   child: Column(
                     children: [
-                      const SizedBox(
-                        height: 150,
-                      ),
-                      Text(
-                        'COMENZÁ A VIVIR TU',
-                        style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.w500,
-                            ),
-                      ),
-                      Text(
-                        'NT EXPERIENCE',
-                        style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                              fontSize: 40,
-                              color: Theme.of(context).primaryColor,
-                              fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.w700,
-                            ),
-                      ),
                       const Spacer(),
+                      Expanded(
+                        flex: 2,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              'COMENZÁ A VIVIR TU',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2
+                                  ?.copyWith(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                            Text(
+                              'NT EXPERIENCE',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2
+                                  ?.copyWith(
+                                    fontSize: 40,
+                                    color: Theme.of(context).primaryColor,
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // const Spacer(),
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: PageIndicator(
