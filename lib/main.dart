@@ -32,6 +32,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final screenController = PageController(viewportFraction: 1.0);
+  int pageIndex = 0;
+  var listofBoxes = [
+    {'boxID': 'NT'},
+    {'boxID': 'CON'}
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
           key: const Key('scroll-plan-newII'),
           scrollDirection: Axis.horizontal,
           onPageChanged: (index) {
-          
+            setState(() {
+              pageIndex = index;
+            });
           },
           controller: screenController,
           children: [
@@ -77,11 +84,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         Center(
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+           padding: const EdgeInsets.only(right: 15, left: 15, bottom: 10),
             child: Column(
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .5,
+                  height: MediaQuery.of(context).size.height * .55,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -105,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Column(
                     children: [
                       const SizedBox(
-                        height: 50,
+                        height: 40,
                       ),
                       Text(
                         title!,
@@ -128,6 +135,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         textAlign: TextAlign.center,
                       ),
                       const Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: PageIndicator(
+                          currentValue: pageIndex,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       Container(
                         height: 45,
                         width: double.infinity,
@@ -136,15 +152,16 @@ class _MyHomePageState extends State<MyHomePage> {
                           borderRadius: BorderRadius.circular(40),
                         ),
                         child: Center(
-                            child: Text(
-                          'iniciar sesión'.toUpperCase(),
-                          style:
-                              Theme.of(context).textTheme.bodyText2?.copyWith(
-                                    fontSize: 16,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        )),
+                          child: Text(
+                            'iniciar sesión'.toUpperCase(),
+                            style:
+                                Theme.of(context).textTheme.bodyText2?.copyWith(
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -169,66 +186,127 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         Center(
-          child: Container(
-            height: 48,
-            width: 171,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/png/neural.png'),
-              ),
+          child: Padding(
+            padding: const EdgeInsets.only(right: 15, left: 15, bottom: 10),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * .50,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      const SizedBox(
+                        height: 60,
+                      ),
+                      Center(
+                        child: Container(
+                          height: 48,
+                          width: 171,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('assets/png/neural.png'),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * .45,
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 150,
+                      ),
+                      Text(
+                        'COMENZÁ A VIVIR TU',
+                        style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.w500,
+                            ),
+                      ),
+                      Text(
+                        'NT EXPERIENCE',
+                        style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                              fontSize: 40,
+                              color: Theme.of(context).primaryColor,
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.w700,
+                            ),
+                      ),
+                      const Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: PageIndicator(
+                          currentValue: pageIndex,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        height: 45,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'iniciar sesión'.toUpperCase(),
+                            style:
+                                Theme.of(context).textTheme.bodyText2?.copyWith(
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ),
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text(
-                'COMENZÁ A VIVIR TU',
-                style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                      fontSize: 20,
-                      color: Colors.white,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w500,
-                    ),
-              ),
-              Text(
-                'NT EXPERIENCE',
-                style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                      fontSize: 40,
-                      color: Theme.of(context).primaryColor,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w700,
-                    ),
-              ),
-              const SizedBox(
-                height: 100,
-              ),
-              Container(
-                margin: const EdgeInsets.only(left: 20, right: 20),
-                height: 45,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  borderRadius: BorderRadius.circular(40),
-                ),
-                child: Center(
-                    child: Text(
-                  'iniciar sesión'.toUpperCase(),
-                  style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                        fontSize: 16,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                      ),
-                )),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-            ],
-          ),
-        ),
       ],
+    );
+  }
+}
+
+class PageIndicator extends StatelessWidget {
+  const PageIndicator({
+    Key? key,
+    this.currentValue = 0,
+  }) : super(key: key);
+  final int currentValue;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(
+          4,
+          (index) => Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: AnimatedContainer(
+                  curve: Curves.easeIn,
+                  duration: const Duration(milliseconds: 500),
+                  width: 8,
+                  height: 8,
+                  decoration: BoxDecoration(
+                      border: index == currentValue
+                          ? Border.all(
+                              width: 1.0, color: Theme.of(context).primaryColor)
+                          : null,
+                      color: index == currentValue ? Colors.black : Colors.grey,
+                      borderRadius: BorderRadius.circular(2)),
+                ),
+              )),
     );
   }
 }
